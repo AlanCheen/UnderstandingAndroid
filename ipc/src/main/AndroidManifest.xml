@@ -16,6 +16,23 @@
             android:enabled="true"
             android:exported="true">
         </service>
+
+        <activity
+            android:name=".IpcActivity"
+            android:label="Ipc"
+            android:process=":ipc">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="ipc"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".StudentService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>
