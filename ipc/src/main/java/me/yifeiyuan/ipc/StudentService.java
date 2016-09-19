@@ -8,6 +8,10 @@ import android.os.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @see IStudentManager
+ *
+ */
 public class StudentService extends Service {
 
     private IBinder mIBinder = new IStudentManager.Stub(){

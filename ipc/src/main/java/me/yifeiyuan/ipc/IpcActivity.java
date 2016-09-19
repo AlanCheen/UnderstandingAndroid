@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
@@ -35,6 +36,13 @@ public class IpcActivity extends AppCompatActivity {
 
     //===================================Messenger===================================
 
+    private Messenger mClientMessenger = new Messenger(new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d(TAG, "handleMessage: "+"客户端收到来自服务端的消息");
+        }
+    });
+
     private Messenger mRemoteMessenger;
     private ServiceConnection mMessengerConnection = new ServiceConnection() {
         @Override
@@ -44,6 +52,7 @@ public class IpcActivity extends AppCompatActivity {
             Message msg = new Message();
             msg.what = MessengerService.SAY_HI;
             try {
+                msg.replyTo = mClientMessenger;
                 mRemoteMessenger.send(msg);
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -91,7 +100,7 @@ public class IpcActivity extends AppCompatActivity {
         bindService(intent, mAidlConnection,BIND_AUTO_CREATE);
     }
 
-
+    //===================================自己实现 Stub===================================
     private ServiceConnection mStudentConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {

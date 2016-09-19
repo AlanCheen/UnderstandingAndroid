@@ -9,10 +9,19 @@ import android.util.Log;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * Aidl 本身线程不安全
+ *
+ * 方法运行在 Binder 线程池之中
+ *
+ */
 public class AidlService extends Service {
 
     private static final String TAG = "AidlService";
 
+    /**
+     * 线程安全
+     */
     private CopyOnWriteArrayList<Book> mBooks = new CopyOnWriteArrayList<>();
 
     private IBookManager mIBookManager = new IBookManager.Stub() {

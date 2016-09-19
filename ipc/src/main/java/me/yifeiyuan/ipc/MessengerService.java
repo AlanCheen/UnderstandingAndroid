@@ -22,7 +22,7 @@ public class MessengerService extends Service {
 
             switch (message.what) {
                 case SAY_HI:
-                    Log.d(TAG, "服务端收到了来自客户端的 say hi!"+Thread.currentThread().getName());
+                    Log.d(TAG, "服务端收到了来自客户端的 say hi!"+Thread.currentThread().getName());//main 线程
                     Messenger client = message.replyTo;
                     if (null == client) {
                         break;
