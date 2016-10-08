@@ -14,29 +14,21 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.understandingandroid;
+package me.yifeiyuan.dagger2;
+
+import android.util.Log;
 
 /**
- * Created by 程序亦非猿 on 16/9/18.
+ * Created by 程序亦非猿 on 16/9/27.
+ *
+ * 简单的 Provides 注解练习
+ *
  */
-public class AndroidItem {
+public class SimpleProvider {
 
-    /**
-     * item 显示的标题
-     */
-    public String title;
-    /**
-     * 需要启动的 activity 的 action
-     *
-     * <intent-filter>
-     *    <category android:name="android.intent.category.DEFAULT"/>
-     *    <action android:name="$action"/>
-     * </intent-filter>
-     */
-    public String action;
+    private static final String TAG = "SimpleProvider";
 
-    public AndroidItem(String title, String action) {
-        this.title = title;
-        this.action = action;
+    public void log() {
+        Log.d(TAG, "log: simple provider");
     }
 }

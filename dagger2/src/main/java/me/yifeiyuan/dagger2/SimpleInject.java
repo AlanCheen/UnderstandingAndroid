@@ -14,29 +14,26 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.understandingandroid;
+package me.yifeiyuan.dagger2;
+
+import android.util.Log;
+
+import javax.inject.Inject;
 
 /**
- * Created by 程序亦非猿 on 16/9/18.
+ * Created by 程序亦非猿 on 16/9/27.
+ *
+ * 最简单的 inject构造方法 练习
  */
-public class AndroidItem {
+public class SimpleInject {
 
-    /**
-     * item 显示的标题
-     */
-    public String title;
-    /**
-     * 需要启动的 activity 的 action
-     *
-     * <intent-filter>
-     *    <category android:name="android.intent.category.DEFAULT"/>
-     *    <action android:name="$action"/>
-     * </intent-filter>
-     */
-    public String action;
+    private static final String TAG = "SimpleInject";
 
-    public AndroidItem(String title, String action) {
-        this.title = title;
-        this.action = action;
+    // Inject 来注解一个构造方法的时候,表示当其他类要实例化该类的时候,使用被Inject注解的构造方法实例化。
+    @Inject
+    public SimpleInject() {}
+
+    public void log() {
+        Log.d(TAG, "log: SimpleInject");
     }
 }

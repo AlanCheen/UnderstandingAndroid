@@ -14,29 +14,20 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.understandingandroid;
+package me.yifeiyuan.dagger2;
+
+import dagger.Module;
+import dagger.Provides;
 
 /**
- * Created by 程序亦非猿 on 16/9/18.
+ * Created by 程序亦非猿 on 16/9/27.
+ * @Provides methods can only be present within a @Module or @ProducerModule
+ * @Provides methods cannot be abstract
  */
-public class AndroidItem {
-
-    /**
-     * item 显示的标题
-     */
-    public String title;
-    /**
-     * 需要启动的 activity 的 action
-     *
-     * <intent-filter>
-     *    <category android:name="android.intent.category.DEFAULT"/>
-     *    <action android:name="$action"/>
-     * </intent-filter>
-     */
-    public String action;
-
-    public AndroidItem(String title, String action) {
-        this.title = title;
-        this.action = action;
+@Module
+public class SimpleProviderModule {
+    @Provides
+    SimpleProvider provideSimpleProvider(){
+        return new SimpleProvider();
     }
 }

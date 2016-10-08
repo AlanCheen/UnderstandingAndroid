@@ -14,29 +14,17 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.understandingandroid;
+package me.yifeiyuan.dagger2;
+
+import javax.inject.Inject;
 
 /**
- * Created by 程序亦非猿 on 16/9/18.
+ * Created by 程序亦非猿 on 16/9/27.
  */
-public class AndroidItem {
+public class Weapon {
 
-    /**
-     * item 显示的标题
-     */
-    public String title;
-    /**
-     * 需要启动的 activity 的 action
-     *
-     * <intent-filter>
-     *    <category android:name="android.intent.category.DEFAULT"/>
-     *    <action android:name="$action"/>
-     * </intent-filter>
-     */
-    public String action;
+    String name = "小匕首";
 
-    public AndroidItem(String title, String action) {
-        this.title = title;
-        this.action = action;
-    }
+    @Inject
+    public Weapon() {}
 }
