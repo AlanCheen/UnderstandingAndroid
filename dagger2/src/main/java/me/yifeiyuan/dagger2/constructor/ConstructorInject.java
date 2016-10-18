@@ -14,39 +14,28 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.dagger2;
+package me.yifeiyuan.dagger2.constructor;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
-import me.yifeiyuan.dagger2.module.Weapon;
-
 /**
  * Created by 程序亦非猿 on 16/9/27.
+ *
+ * 最简单的 inject构造方法练习
  */
-public class Man {
+public class ConstructorInject {
 
-    private static final String TAG = "Man";
+    private static final String TAG = "ConstructorInject";
 
-    // 注解字段 会直接通过 man.weapon = weaponProvider.get() 赋值
-    // 不支持 private 修饰 , Dagger does not support injection into private fields
+    // Inject 来注解一个构造方法的时候,表示当其他类要实例化该类的时候,使用被Inject注解的构造方法实例化。
     @Inject
-    Weapon weapon;
-
-    // 注解构造方法, 会被dagger用来实例化的时候调用
-    @Inject
-    public Man() {
-        Log.d(TAG, "Man: 实例化");
+    public ConstructorInject() {
+        Log.d(TAG, "ConstructorInject: 简单注解构造方法 ok");
     }
 
-    // inject 注解方法的时候 会在实例化后紧接着被调用
-    @Inject
-    public void attack() {
-        Log.d(TAG, "调用 attack: use weapon:"+weapon.name);
-    }
-
-    public void sayHi() {
-        Log.d(TAG, "sayHi: hi man");
+    public void log() {
+        Log.d(TAG, "log: ConstructorInject");
     }
 }

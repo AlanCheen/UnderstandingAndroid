@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.dagger2;
+package me.yifeiyuan.dagger2.module;
 
 import javax.inject.Inject;
 
@@ -23,8 +23,15 @@ import javax.inject.Inject;
  */
 public class Weapon {
 
-    String name = "小匕首";
+    public String name = "小匕首";
 
     @Inject
-    public Weapon() {}
+    public Weapon() {
+
+    }
+
+    public Weapon setName(String name) {
+        this.name  = name;
+        return this;
+    }
 }

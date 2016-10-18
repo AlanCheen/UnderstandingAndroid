@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package me.yifeiyuan.dagger2;
+package me.yifeiyuan.dagger2.module;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
 /**
- * Created by 程序亦非猿 on 16/9/27.
+ * Created by 程序亦非猿 on 16/10/17.
  *
- * 最简单的 inject构造方法 练习
+ * 联系 module
+ *
  */
-public class SimpleInject {
+public class ModuleInject {
 
-    private static final String TAG = "SimpleInject";
+    private static final String TAG = "ModuleInject";
 
-    // Inject 来注解一个构造方法的时候,表示当其他类要实例化该类的时候,使用被Inject注解的构造方法实例化。
     @Inject
-    public SimpleInject() {}
+    public ModuleInject() {}
 
-    public void log() {
-        Log.d(TAG, "log: SimpleInject");
+    public void sayHi() {
+        Log.d(TAG, "hi i am ModuleInject");
     }
 }

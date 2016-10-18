@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         public TextView title;
 
-        public VH(View itemView) {
+        VH(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
         }
