@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupItems() {
         mItems.add(new AndroidItem("IPC", "ipc"));
         mItems.add(new AndroidItem("Dagger2", "dagger2"));
+        mItems.add(new AndroidItem("Support Design", "supportdesign"));
     }
 
     private List<AndroidItem> mItems = new ArrayList<>();

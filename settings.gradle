@@ -1,2 +1,2 @@
-include ':app', ':dagger2'
+include ':app', ':dagger2', ':supportdesign'
 include ':ipc'
